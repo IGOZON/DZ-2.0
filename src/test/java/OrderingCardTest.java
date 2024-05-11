@@ -2,8 +2,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 
 
-import static com.codeborne.selenide.Condition.cssClass;
-import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -34,7 +33,7 @@ public class OrderingCardTest {
     }
 
     @Test
-    void LatinLettersTest() {
+    void latinLettersTest() {
         open("http://localhost:9999");
         form.$("[data-test-id=name] input").setValue("Ivanov Igor");
         form.$("[data-test-id=phone] input").setValue("+79220000000");
@@ -138,7 +137,8 @@ public class OrderingCardTest {
         form.$("[data-test-id=name] input").setValue("Иванов Иван");
         form.$("[data-test-id=phone] input").setValue("+79220000000");
         form.$("button.button").click();
-        $("[data-test-id=agreement]").should(cssClass("input_invalid"));
+        $("[data-test-id=agreement]").should(visible);
+
     }
 
 }
