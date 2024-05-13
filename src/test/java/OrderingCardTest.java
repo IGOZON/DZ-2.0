@@ -137,7 +137,7 @@ public class OrderingCardTest {
         form.$("[data-test-id=name] input").setValue("Иванов Иван");
         form.$("[data-test-id=phone] input").setValue("+79220000000");
         form.$("button.button").click();
-        $("[data-test-id=agreement]").should(visible);
+        $("[data-test-id=agreement].input_invalid").should(visible);
 
     }
 
